@@ -49,23 +49,3 @@ exports.sendForgotPasswordEmail = (to, subject, body) => {
   };
   return sendMailTransporter(mailOptions);
 };
-
-exports.sendSubAdminCred = (to, subject, body) => {
-  const mailOptions = {
-    from: config.get('NODE_MAILER.USER'),
-    to: to,
-    subject: `${subject}`,
-    html: `<h2>${subject}</h2>` + "<h4 style='font-weight:bold;'>" + 'Your Email - '+`${body.email}`+'<br>'+'Your Password - '+`${body.password}` + '</h4>', // html body
-  };
-  return sendMailTransporter(mailOptions);
-};
-
-exports.sendSupport = (to, subject, body) => {
-  const mailOptions = {
-    from: config.get('NODE_MAILER.USER'),
-    to: to,
-    subject: `${subject}`,
-    html: `<h4>${subject}</h4>` + "<p>" + body + '</p>', // html body
-  };
-  return sendMailTransporter(mailOptions);
-};

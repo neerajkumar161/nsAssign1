@@ -16,6 +16,10 @@
       "USER": {
         "STATIC": "/user/profile/image/",
         "ACTUAL": "/uploads/images/user/"
+      },
+      "PRODUCT": {
+        "STATIC": "/image/product/",
+        "ACTUAL": "/uploads/images/products/"
       }
     },
     "FILE": {
