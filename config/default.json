@@ -9,10 +9,6 @@
   "NODE_MAILER": { "USER": "neeraj@apptunix.com", "PASSWORD": "Tunix@5494" },
   "PATHS": {
     "IMAGE": {
-      "ADMIN": {
-        "STATIC": "/admin/profile/image/",
-        "ACTUAL": "/uploads/images/admin/"
-      },
       "USER": {
         "STATIC": "/user/profile/image/",
         "ACTUAL": "/uploads/images/user/"

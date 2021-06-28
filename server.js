@@ -20,10 +20,14 @@ app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// app.use(
-//   config.get('PATHS.IMAGE.ADMIN.STATIC'),
-//   express.static(path.join(__dirname, config.get('PATHS.IMAGE.ADMIN.ACTUAL')))
-// );
+app.use(
+  config.get('PATHS.IMAGE.USER.STATIC'),
+  express.static(path.join(__dirname, config.get('PATHS.IMAGE.USER.ACTUAL')))
+);
+app.use(
+  config.get('PATHS.IMAGE.PRODUCT.STATIC'),
+  express.static(path.join(__dirname, config.get('PATHS.IMAGE.PRODUCT.ACTUAL')))
+);
 
 app.use((req, res, next) => {
   const info = req.method + ' ' + res.statusCode + ' ' + req.originalUrl || req.url;
