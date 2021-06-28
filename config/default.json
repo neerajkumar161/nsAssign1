@@ -1,0 +1,34 @@
+{
+  "PORT": 9080,
+  "BASE_URL": "https://localhost:9080/api/v1/",
+  "MONGODB_URL": "mongodb://localhost:27017/task1",
+  "JWT_OPTIONS": {
+    "SECRET_KEY": "3bzf0wT5QURIwQ542BRGdQ+4oFUyLh8arrrc2UaZci8=",
+    "EXPIRES_IN": "5d"
+  },
+  "NODE_MAILER": { "USER": "neeraj@apptunix.com", "PASSWORD": "Tunix@5494" },
+  "PATHS": {
+    "IMAGE": {
+      "ADMIN": {
+        "STATIC": "/admin/profile/image/",
+        "ACTUAL": "/uploads/images/admin/"
+      },
+      "USER": {
+        "STATIC": "/user/profile/image/",
+        "ACTUAL": "/uploads/images/user/"
+      },
+      "PRODUCT": {
+        "STATIC": "/image/product/",
+        "ACTUAL": "/uploads/images/products/"
+      }
+    },
+    "FILE": {
+      "USER": {
+        "ACTUAL": "/uploads/files/user/",
+        "STATIC": "/user/post/files/"
+      }
+    }
+  },
+  "PAGINATION": { "PAGE": 1, "SORT": "createdAt", "LIMIT": 5 },
+  "OTP_OPTIONS": { "EXPIRES": 600, "IN": "seconds" }
+}
