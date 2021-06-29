@@ -33,6 +33,23 @@ exports.bcryptCompare = async (password, hashPw) => {
 };
 
 // JasonWebToken
+// Try Using Public and Private key
+exports.jwtSignRS256 = (payload) => {
+  const privateKey = fs.readFileSync('private.key', 'utf-8');
+  return jwt.sign({ _id: payload._id.toString() }, privateKey, {
+    algorithm: 'RS256',
+    expiresIn: config.get('JWT_OPTIONS.EXPIRES_IN'),
+  });
+};
+
+exports.jwtVerifyRS256 = async (token) => {
+  const publicKey = fs.readFileSync('public.key', 'utf-8');
+  return jwt.verify(token, publicKey, { algoriths: ['RS256'] }, (err, decoded) => {
+    if (err) throw httpError(401, 'Invalid Token');
+    return decoded;
+  });
+};
+
 exports.jwtSign = (payload) => {
   return jwt.sign(
     {

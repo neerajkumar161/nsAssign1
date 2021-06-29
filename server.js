@@ -1,4 +1,5 @@
 const cors = require('cors');
+const path = require('path');
 const config = require('config');
 const morgan = require('morgan');
 const express = require('express');
@@ -38,6 +39,7 @@ app.use((req, res, next) => {
 });
 // Test Api
 app.use('/test', async (req, res, next) => {
+  utils.jwtSignRS256('randomId');
   res.status(200).send({ status: 200, message: 'TEST API' });
 });
 

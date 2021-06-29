@@ -32,8 +32,7 @@ exports.login = async (req, res, next) => {
     if (!isMatch) throw messages.INVALID_CREDENTIALS;
 
     delete user.password;
-    user.token = utils.jwtSign(user);
-
+    user.token = utils.jwtSignRS256(user);
     utils.successResponse(res, status.OK, messages.USER_LOGGED_IN_SUCCESSFULLY, user);
   } catch (err) {
     next(err);

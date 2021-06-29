@@ -11,8 +11,8 @@ exports.isUserValid = async (req, res, next) => {
     if (req.user && req.user.guestMode) next();
     // if (req.headers['x-guest-mode'] == 'true') next();
     else if (req.headers.auth) {
-      const decodeData = await utils.jwtVerify(req.headers.auth);
-
+      // const decodeData = await utils.jwtVerify(req.headers.auth);
+      const decodeData = await utils.jwtVerifyRS256(req.headers.auth);
       const user = await Models.User.findOne({ _id: decodeData._id });
       if (!user) throw messages.USER_NOT_EXIST;
       else {
